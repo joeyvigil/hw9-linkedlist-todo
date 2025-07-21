@@ -4,8 +4,6 @@ class Node:
         self.next = None #This links us to the next node in the chain
 
 
-
-
 class LinkedList:
     def __init__(self):
         self.head = None #Keeps track of the begining of the chain, If I know where the chain starts I can find anything in the chain
@@ -32,7 +30,7 @@ class LinkedList:
 
 
     def traverse(self):
-        print("==========List Contents=============")
+        # print("==========List Contents=============")
         if self.is_empty():
             return "Sorry list is empty"
         
@@ -55,12 +53,15 @@ class LinkedList:
         current.next = new_node #Current Node points to new node
 
     def get_at_position(self,position):
+        if self.head is None:
+            return False
         current = self.head
         counter = 0
         while counter < position:
             current = current.next
             counter += 1
-
+        # print(f"current data {current.data}")
+        
         return current.data
     
     def delete_at_position(self, position):
@@ -79,27 +80,23 @@ class LinkedList:
 
 
 
+# songs = LinkedList()
+# print(songs.is_empty())
 
+# songs.append("Blue")
+# songs.append("Twisting Fingers")
+# songs.append("Baby Shark")
+# songs.append("Nothing Else Matters")
+# songs.append("Enter Sandman")
+# songs.append("Smurf Theme")
+# songs.append("Chill Beats")
 
+# songs.traverse()
 
+# songs.insert_at_position(2,"Orange Blossoms")
 
-songs = LinkedList()
-print(songs.is_empty())
+# songs.traverse()
+# print(songs.get_at_position(4))
 
-songs.append("Blue")
-songs.append("Twisting Fingers")
-songs.append("Baby Shark")
-songs.append("Nothing Else Matters")
-songs.append("Enter Sandman")
-songs.append("Smurf Theme")
-songs.append("Chill Beats")
-
-songs.traverse()
-
-songs.insert_at_position(2,"Orange Blossoms")
-
-songs.traverse()
-print(songs.get_at_position(4))
-
-songs.delete_at_position(1)
-songs.traverse()
+# songs.delete_at_position(1)
+# songs.traverse()

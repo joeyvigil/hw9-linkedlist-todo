@@ -1,4 +1,6 @@
-from linked_list_class import Node,LinkedList
+from GeeksLL import LinkedLista
+import os
+os.system('cls')
 
 class  Task:
     def  __init__(self,  name):
@@ -9,11 +11,11 @@ class  Task:
 class  ToDoList:
     def  __init__(self,  list_name="My Tasks"):
         self.list_name  =  list_name
-        self.tasks  =  LinkedList() # Use your LinkedList to store Task objects
+        self.tasks  =  LinkedLista() # Use your LinkedList to store Task objects
 
     # IMPLEMENT THESE METHODS:
     def  add_task(self,  task_name):
-        self.tasks.append(Task(task_name))
+        self.tasks.insertAtBegin(task_name)
 
     def  complete_task(self,  position):
         """
@@ -46,17 +48,11 @@ class  ToDoList:
         pass
 
     def  view_all_tasks(self):
-        """
-        Display all tasks in the to-do list with their completion status
-        Example output:
-            My Tasks
-            ========
-            1. Buy groceries - Complete
-            2. Finish homework -Incomplete
-            3. Call dentist - Incomplete
-        """
-        # TODO: Implement this method
         pass
+ 
+#test stuff here
+ 
+ 
         
 def  test_todo_list():
     """Test function to verify ToDoList functionality"""
@@ -100,4 +96,4 @@ def  test_todo_list():
     print(f"Result: {result}")
     print("\n=== Test completed! ===")
 # Run the test
-# test_todo_list()
+test_todo_list()
