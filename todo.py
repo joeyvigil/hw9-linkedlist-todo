@@ -1,6 +1,6 @@
-from GeeksLL import LinkedLista
 import os
-os.system('cls')
+os.system('cls' if os.name == 'nt' else 'clear')
+from GeeksLL import Linked_List
 
 class  Task:
     def  __init__(self,  name):
@@ -11,25 +11,14 @@ class  Task:
 class  ToDoList:
     def  __init__(self,  list_name="My Tasks"):
         self.list_name  =  list_name
-        self.tasks  =  LinkedLista() # Use your LinkedList to store Task objects
+        self.tasks  =  Linked_List() # Use your LinkedList to store Task objects
 
     # IMPLEMENT THESE METHODS:
     def  add_task(self,  task_name):
         self.tasks.insertAtBegin(task_name)
 
     def  complete_task(self,  position):
-        """
-        Mark a task as complete by position
-        Args:
-            position (int): Position of the task to mark complete (1-indexed)
-        Returns:
-            bool: True if task was found and marked complete, False otherwise
-        Example:
-            Success = todo.complete_task(1)  # Complete first task
-            if success:
-                print("Task completed!")
-        """
-        # self.tasks.get_at_position().complete
+        # self.tasks.getAtIndex(position).complete = "complete"
         pass
 
     def  remove_task(self,  position):
@@ -48,12 +37,10 @@ class  ToDoList:
         pass
 
     def  view_all_tasks(self):
-        pass
- 
-#test stuff here
+        self.tasks.printLL()
  
  
-        
+ 
 def  test_todo_list():
     """Test function to verify ToDoList functionality"""
     print("=== Testing To-Do List Implementation ===\n")
@@ -95,5 +82,6 @@ def  test_todo_list():
     result  =  todo.remove_task(0) # Invalid position (should be 1-indexed)
     print(f"Result: {result}")
     print("\n=== Test completed! ===")
+    
 # Run the test
 test_todo_list()
