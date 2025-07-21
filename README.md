@@ -1,6 +1,8 @@
 Build a To-Do List Manager
 --------------------------
 
+https://github.com/dkatina/advanced-python-l2
+
 ### Assignment Overview
 
 Now that you've learned the fundamentals of linked lists and practiced with basic operations and music playlists, it's time to apply these concepts independently. Your task is to create a To-Do List Manager that uses a linked list to store and manage tasks.
