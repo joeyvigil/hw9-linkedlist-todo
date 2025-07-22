@@ -1,7 +1,6 @@
 Build a To-Do List Manager
 --------------------------
 
-https://github.com/dkatina/advanced-python-l2
 
 ### Assignment Overview
 
