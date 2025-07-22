@@ -1,3 +1,4 @@
+# linked list from https://www.geeksforgeeks.org/python/python-linked-list/
 class Node:
     def __init__(self, data):
         self.data = data
@@ -33,7 +34,8 @@ class Linked_List:
             new_node.next = current_node.next
             current_node.next = new_node
         else:
-            print("Index not present")
+            pass
+            # print("Index not present")
 
     # Method to add a node at the end of LL
     def insertAtEnd(self, data):
@@ -48,7 +50,7 @@ class Linked_List:
 
         current_node.next = new_node
 
-    # Update node at a given position
+    # Update node at a given position, returns true if successful
     def updateNode(self, val, index):
         current_node = self.head
         position = 0
@@ -58,8 +60,10 @@ class Linked_List:
 
         if current_node is not None:
             current_node.data = val
+            return True
         else:
-            print("Index not present")
+            # print("Index not present")
+            return False
 
     # Method to remove first node of linked list
     def remove_first_node(self):
@@ -85,14 +89,14 @@ class Linked_List:
 
         current_node.next = None
 
-    # Method to remove a node at a given index
+    # Method to remove a node at a given index, returns True if successful
     def remove_at_index(self, index):
         if self.head is None:
-            return
+            return False
 
         if index == 0:
             self.remove_first_node()
-            return
+            return True
 
         current_node = self.head
         position = 0
@@ -102,8 +106,10 @@ class Linked_List:
 
         if current_node is not None and current_node.next is not None:
             current_node.next = current_node.next.next
+            return True
         else:
-            print("Index not present")
+            # print("Index not present")
+            return False
 
     # Method to remove a node from the linked list by its data
     def remove_node(self, data):
@@ -148,11 +154,12 @@ class Linked_List:
             count += 1
         return node
     
+    
 class  Task:
-    def  __init__(self,  name):
+    def  __init__(self,  name, complete ="incomplete"):
         self.name  =  name  # Task description (string)
-        self.complete  =  "incomplete" # Status: "complete" or "incomplete"
-        
+        self.complete  =  complete # Status: "complete" or "incomplete"
+           
 # You'll need to include your LinkedList and Node classes from the lesson
 class  ToDoList:
     def  __init__(self,  list_name="My Tasks"):
@@ -164,37 +171,29 @@ class  ToDoList:
         self.tasks.insertAtBegin(Task(task_name))
 
     def  complete_task(self,  position):
-        # self.tasks.getAtIndex(position).complete = "complete"
-        pass
+        count =0
+        while self.tasks.getAtIndex(count):
+            if count == position-1:
+                self.tasks.getAtIndex(count).data.complete = 'complete'
+                print("Task completed!")
+                return True
+            count +=1
+        return False
 
     def  remove_task(self,  position):
-        """
-        Remove a task from the list by position
-        Args:
-            position (int): Position of the task to remove (1-indexed)
-        Returns:
-            bool: True if task was found and removed, False otherwise
-        Example:
-            success = todo.remove_task(2)  # Remove second task
-            if success:
-                print("Task removed!")
-        """
-        # TODO: Implement this method
-        pass
+        if self.tasks.remove_at_index(position-1):
+            print("Task removed!")
+            return True
+        return False
 
     def  view_all_tasks(self):
-#         My Tasks
-#             ========
-#             1. Buy groceries - Complete
         print("---------- My Tasks ----------")
         print("==============================")
         count =0
         while self.tasks.getAtIndex(count):
             print(f"{count+1}. {self.tasks.getAtIndex(count).data.name} - {self.tasks.getAtIndex(count).data.complete}")
             count +=1
-        # self.tasks.printLL()
- 
- 
+        
  
 def  test_todo_list():
     """Test function to verify ToDoList functionality"""
